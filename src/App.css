@@ -299,6 +299,9 @@ a:hover {
 .news-title {
   width: 70%;
 }
+.ant-typography.news-title {
+  font-size: 18px !important;
+}
 
 .news-image-container .img {
   width: 100px;

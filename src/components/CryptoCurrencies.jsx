@@ -3,6 +3,7 @@ import millify from "millify";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useGetCryptosQuery } from "../services/cryptoApi";
+import CryptoDetails from "./CryptoDetails";
 
 const CryptoCurrencies = ({ simplified }) => {
   const count = simplified ? 10 : 100;
@@ -31,8 +32,8 @@ const CryptoCurrencies = ({ simplified }) => {
       )}
 
       <Row gutter={[32, 32]} className="crypto-card-container">
-        {cryptos?.map((currency) => (
-          <Col xs={24} sm={12} lg={6} className="crypto-card" key={currency.id}>
+        {cryptos?.map((currency, i) => (
+          <Col xs={24} sm={12} lg={6} className="crypto-card" key={i}>
             <Link to={`/crypto/${currency.id}`} />
             <Card
               title={`${currency.rank}.${currency.name}`}
