@@ -3,7 +3,7 @@ import millify from "millify";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useGetCryptosQuery } from "../services/cryptoApi";
-import CryptoDetails from "./CryptoDetails";
+import Loader from "./Loader";
 
 const CryptoCurrencies = ({ simplified }) => {
   const count = simplified ? 10 : 100;
@@ -19,7 +19,7 @@ const CryptoCurrencies = ({ simplified }) => {
     setCryptos(filterData);
   }, [cryptosList, searchTerm]);
 
-  if (isFetching) return "Loading....";
+  if (isFetching) return <Loader />;
   return (
     <>
       {!simplified && (
@@ -34,7 +34,6 @@ const CryptoCurrencies = ({ simplified }) => {
       <Row gutter={[32, 32]} className="crypto-card-container">
         {cryptos?.map((currency, i) => (
           <Col xs={24} sm={12} lg={6} className="crypto-card" key={i}>
-            {console.log(currency)}
             <Link to={`/crypto/${currency.uuid}`}>
               <Card
                 title={`${currency.rank}.${currency.name}`}

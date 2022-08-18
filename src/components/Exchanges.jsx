@@ -1,23 +1,16 @@
-import { Avatar, Col, Collapse, Row, Spin, Typography } from "antd";
+import { Avatar, Col, Collapse, Row, Typography } from "antd";
 import HTMLReactParser from "html-react-parser";
 import millify from "millify";
 import React from "react";
 import { useGetCryptoExchangesQuery } from "../services/cryptoApi";
+import Loader from "./Loader";
 
 const { Title, Text } = Typography;
 const { Panel } = Collapse;
-const text = `
-  A dog is a type of domesticated animal.
-  Known for its loyalty and faithfulness,
-  it can be found as a welcome guest in many households across the world.
-`;
+
 const Exchanges = () => {
   const { data, isFetching } = useGetCryptoExchangesQuery();
-  console.log(data?.data?.coins);
-  if (isFetching) return "Loading...";
-  const onChange = (key) => {
-    console.log(key);
-  };
+  if (isFetching) return <Loader />;
 
   return (
     <>
@@ -33,10 +26,10 @@ const Exchanges = () => {
             <Col span={24}>
               <Collapse>
                 <Panel
-                  key={coin.id}
+                  key={coin.uuid}
                   showArrow={false}
                   header={
-                    <Row key={coin.id}>
+                    <Row key={coin.uuid}>
                       <Col span={6}>
                         <Text>
                           <strong>{coin.rank}.</strong>

@@ -3,6 +3,7 @@ import moment from "moment";
 import React, { useState } from "react";
 import { useGetCryptosQuery } from "../services/cryptoApi";
 import { useGetCryptoNewsQuery } from "../services/cryptoNewsApi";
+import Loader from "./Loader";
 
 const { Text, Title } = Typography;
 const { Option } = Select;
@@ -11,13 +12,12 @@ const demoImage =
 const News = ({ simplified }) => {
   const [newsCategory, setNewsCategory] = useState(`Cryptocurrency`);
   const { data } = useGetCryptosQuery(100);
-
-  const { data: cryptoNews, fetching } = useGetCryptoNewsQuery({
+  const { data: cryptoNews } = useGetCryptoNewsQuery({
     newsCategory,
     count: simplified ? 6 : 12,
   });
 
-  if (fetching) return "Loading...";
+  if (!cryptoNews?.value) return <Loader />;
   return (
     <>
       <Row gutter={[24, 24]}>
@@ -34,8 +34,10 @@ const News = ({ simplified }) => {
               }
             >
               <Option value="Cryptocurrency">Cryptocurrency</Option>
-              {data?.data?.coins.map((coin) => (
-                <Option value={coin.name}>{coin.name}</Option>
+              {data?.data?.coins.map((coin, i) => (
+                <Option key={i} value={coin.name}>
+                  {coin.name}
+                </Option>
               ))}
             </Select>
           </Col>
