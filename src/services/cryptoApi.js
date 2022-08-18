@@ -23,6 +23,9 @@ export const cryptoApi = createApi({
       query: ({ coinId, timeperiod }) =>
         createRequest(`coin/${coinId}/history?timePeriod=${timeperiod}`),
     }),
+    getCryptoExchanges: builder.query({
+      query: () => createRequest("/coins"),
+    }),
   }),
 });
 
@@ -30,4 +33,5 @@ export const {
   useGetCryptosQuery,
   useGetCryptoDetailsQuery,
   useGetCryptoHistoryQuery,
+  useGetCryptoExchangesQuery,
 } = cryptoApi;
