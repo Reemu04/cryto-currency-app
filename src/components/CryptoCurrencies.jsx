@@ -36,7 +36,13 @@ const CryptoCurrencies = ({ simplified }) => {
             <Link to={`/crypto/${currency.id}`} />
             <Card
               title={`${currency.rank}.${currency.name}`}
-              extra={<img className="crypto-image" src={currency.iconUrl} />}
+              extra={
+                <img
+                  className="crypto-image"
+                  src={currency.iconUrl}
+                  alt="crypto"
+                />
+              }
               hoverable
             >
               <p>Price:{millify(currency.price)}</p>
