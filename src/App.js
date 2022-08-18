@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Switch, Link, Route, Routes } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import { Layout, Space, Typography } from "antd";
 import {
   Navbar,
