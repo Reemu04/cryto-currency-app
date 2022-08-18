@@ -1,8 +1,42 @@
 import { Col, Row, Typography } from "antd";
 import React from "react";
+import { Line } from "react-chartjs-2";
+import { CategoryScale } from "chart.js";
+import Chart from "chart.js/auto";
+Chart.register(CategoryScale);
 
 const { Title } = Typography;
 const LineCharts = ({ coinHistory, coinName, currentPrice }) => {
+  const coinPrice = [];
+  const coinTimeStamp = [];
+
+  for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
+    coinPrice.push(coinHistory.data.history[i].price);
+    coinTimeStamp.push(
+      new Date(coinHistory.data.history[i].timestamp).toLocaleDateString()
+    );
+  }
+
+  const data = {
+    labels: coinTimeStamp,
+    datasets: [
+      {
+        label: "Price in USD",
+        data: coinPrice,
+        fill: false,
+        backgoroundColor: "#0071bd",
+        borderColor: "#0071bd",
+      },
+    ],
+  };
+
+  const options = {
+    scales: {
+      y: {
+        ticks: { beginAtZero: true },
+      },
+    },
+  };
   return (
     <>
       <Row className="chart-header">
@@ -18,6 +52,7 @@ const LineCharts = ({ coinHistory, coinName, currentPrice }) => {
           </Title>
         </Col>
       </Row>
+      <Line data={data} options={options} />
     </>
   );
 };
