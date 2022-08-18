@@ -46,9 +46,6 @@ const News = ({ simplified }) => {
               <a href={news.url} target="_blank" rel="noreferrer">
                 <div className="news-image-container">
                   <Title className="news-title" level={4}>
-                    {/* {news.name > "80"
-                      ? `${news.name.substring(0, 100)}...`
-                      : news.name} */}
                     {news.name}
                   </Title>
                   <img
@@ -58,7 +55,6 @@ const News = ({ simplified }) => {
                   />
                 </div>
                 <p>
-                  {console.log(typeof news.description)}
                   {news.description > " 100"
                     ? `${news.description.substring(0, 100)}...`
                     : news.description}
