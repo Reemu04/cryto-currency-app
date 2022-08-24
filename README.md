@@ -1,9 +1,9 @@
-https://crytocurrency.netlify.app/
+
 
 # Cryptoverse - Explore the World of Cryptocurrency
 
 This is a cryptocurrency app.I have made useing React and multiple APIs powered by https://rapidapi.com.
-Also use Chart Js in this project .
+Also using Chart Js in this project .
 
 
 ## Available Scripts
@@ -21,4 +21,5 @@ Also use Chart Js in this project .
 
 ### Deployment
 
+https://crytocurrency.netlify.app/
 
