@@ -1,8 +1,12 @@
 https://crytocurrency.netlify.app/
 
-# Getting Started with Create React App
+# Cryptoverse - Explore the World of Cryptocurrency
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+In this video, we will create a cryptocurrency app. We're going to use React and multiple APIs powered by https://rapidapi.com.
+
+By the end of this video, you will become the master of working with APIs.
+# Cryptoverse - Explore the World of Cryptocurrency
 
 ## Available Scripts
 
