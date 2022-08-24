@@ -2,7 +2,7 @@
 
 # Cryptoverse - Explore the World of Cryptocurrency
 
-**This is a cryptocurrency app.I have made useing React and multiple APIs powered by https://rapidapi.com.**
+**This is a cryptocurrency app.I have made using React and multiple APIs powered by https://rapidapi.com.**
 Using React Chart Js in this project .
 For designing Used Ant Design 
 
