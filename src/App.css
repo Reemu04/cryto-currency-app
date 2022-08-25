@@ -56,6 +56,9 @@ a:hover {
 .logo a {
   color: white;
 }
+.logo.ant-typography {
+  margin-bottom: 0;
+}
 .menu-control-container {
   display: none !important;
   position: absolute !important;
